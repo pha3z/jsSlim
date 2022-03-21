@@ -41,7 +41,7 @@ function ddSelectedDisplayText(dropdownElement) => dropdownElement.options[dropd
 function ddSelectedValue(dropdownElement)		=> dropdownElement.value;
 
 HTMLElement.prototype.data = function (key) { return this.dataset[key]; }
-HTMLElement.prototype.data = function (key, value) { return this.dataset[key] = value; }
+HTMLElement.prototype.setData = function (key, value) { return this.dataset[key] = value; }
 //HTMLElement.prototype.dataset	= vanilla js. returns the whole data set dictionary.
 
 /**
