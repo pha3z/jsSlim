@@ -1,4 +1,4 @@
-/* jquerySlim
+/* jsSlim
  * by james houx - 2022-3-21 */
 /* https://dev.to/jochemstoel/re-implementing-jquery-methods-in-the-htmlelement-prototype-15b9 */
 /* note that the link above has an example of event emission using modenr js */
@@ -40,23 +40,9 @@ HTMLElement.prototype.insertBeforeSibling 	= function (sibling) 	{ this.parentNo
 function ddSelectedDisplayText(dropdownElement) => dropdownElement.options[dropdownElement.selectedIndex].text;
 function ddSelectedValue(dropdownElement)		=> dropdownElement.value;
 
-
-
-/**
- * single method to get/set/list HTMLElement dataset values
- * get:  $('div').data('color')     assuming <div data-color="..."></div>
- * set:  $('div').data('color', '#0099ff')
- */
-HTMLElement.prototype.data = function (key, value) {
-    if (!value) {
-        if (!key) {
-            return this.dataset
-        }
-        return this.dataset[key]
-    }
-    this.dataset[key] = value
-    return this
-}
+HTMLElement.prototype.data = function (key) { return this.dataset[key]; }
+HTMLElement.prototype.data = function (key, value) { return this.dataset[key] = value; }
+//HTMLElement.prototype.dataset	= vanilla js. returns the whole data set dictionary.
 
 /**
  * This allows you to "forEach" a NodeList returned by querySelectorAll or $$
